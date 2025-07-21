@@ -1,0 +1,33 @@
+<div class="withdraw-list-container">
+  <h2>Pending Withdraw Requests</h2>
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error" class="text-danger">{{ error }}</div>
+  <table class="table table-bordered" *ngIf="pendingWithdraws.length > 0">
+    <thead>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Amount</th>
+        <th>Requested By</th>
+        <th>Created At</th>
+        <th>Admin Note</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of pendingWithdraws">
+        <td>{{ item.id || item.transactionId }}</td>
+        <td>{{ item.amount | number }}</td>
+        <td>{{ item.requestedBy || item.userName }}</td>
+        <td>{{ item.createdAt | date:'short' }}</td>
+        <td>
+          <input type="text" class="form-control" [(ngModel)]="item.adminNote" placeholder="Enter note...">
+        </td>
+        <td>
+          <button class="btn btn-success btn-sm me-2" (click)="approveWithdraw(item, true)">Approve</button>
+          <button class="btn btn-danger btn-sm" (click)="approveWithdraw(item, false)">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="!loading && pendingWithdraws.length === 0">No pending withdraw requests.</div>
+</div>

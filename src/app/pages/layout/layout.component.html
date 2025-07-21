@@ -1,0 +1,43 @@
+<div class="container-wrapper">
+  <nav class="navbar navbar-expand-custom navbar-mainbg d-flex align-items-center justify-content-between">
+    <a class="navbar-brand navbar-logo" href="#">GrubGo</a>
+    <div class="d-flex align-items-center">
+      <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars text-white"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul #navbar class="navbar-nav">
+            <div class="hori-selector" 
+                 [ngStyle]="{
+                   top: horiSelectorStyle.top,
+                   left: horiSelectorStyle.left,
+                   height: horiSelectorStyle.height,
+                   width: horiSelectorStyle.width
+                 }">
+              <div class="left"></div><div class="right"></div>
+            </div>
+            <li *ngFor="let item of navItems; let i = index"
+                class="nav-item"
+                [class.active]="i === activeIndex"
+                (click)="setActive(i, $event)">
+              <a class="nav-link" [routerLink]="item.link">
+                <i [class]="item.icon"></i>{{item.label}}
+              </a>
+            </li>
+        </ul>
+      </div>
+      <div class="user-menu dropdown ms-3">
+        <a class="d-flex align-items-center text-decoration-none dropdown-toggle" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://ui-avatars.com/api/?name=User" alt="avatar" width="32" height="32" class="rounded-circle me-2">
+          <span>{{ userId }}</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+          <li><a class="dropdown-item" href="#" (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="center-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

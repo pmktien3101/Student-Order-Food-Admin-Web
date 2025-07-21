@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <h2>List of Shops Pending Approval</h2>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <div *ngIf="loading && !error">Loading...</div>
+  <table *ngIf="shops.length && !loading" class="table table-bordered table-striped mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>Shop Image</th>
+        <th>Shop Name</th>
+        <th>Shop Owner Phone</th>
+        <th>Shop Owner Email</th>
+        <th>Address</th>
+        <th>Business License</th>
+        <th>Opening Hours</th>
+        <th>Closing Hours</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let shop of shops">
+        <td>
+          <img [src]="shop.imageUrl" alt="Shop Image" width="60" height="60" style="object-fit:cover;">
+        </td>
+        <td>{{ shop.name }}</td>
+        <td>{{ shop.owner?.phone }}</td>
+        <td>{{ shop.owner?.email }}</td>
+        <td>{{ shop.address }}</td>
+        <td>
+          <a [href]="shop.businessLicenseImageUrl" target="_blank">
+            <img [src]="shop.businessLicenseImageUrl" alt="Business License" width="60" height="60" style="object-fit:cover;">
+          </a>
+        </td>
+        <td>{{ shop.openHours }}</td>
+        <td>{{ shop.endHours }}</td>
+        <td>{{ shop.status }}</td>
+        <td>
+          <input [(ngModel)]="shop._note" placeholder="Note (optional)" style="width: 100px; margin-bottom: 4px;" />
+          <button class="btn btn-success btn-sm me-1" (click)="approveShop(shop.id, true, shop._note)">Approve</button>
+          <button class="btn btn-danger btn-sm" (click)="approveShop(shop.id, false, shop._note)">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

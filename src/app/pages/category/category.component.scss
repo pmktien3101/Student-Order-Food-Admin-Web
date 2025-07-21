@@ -1,0 +1,127 @@
+.category-container {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.category-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #ff6b3d;
+  text-align: center;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.category-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 20px 28px;
+  min-width: 260px;
+  max-width: 320px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  position: relative;
+  transition: box-shadow 0.2s;
+}
+.category-card:hover {
+  box-shadow: 0 6px 24px rgba(255,107,61,0.15);
+}
+
+.category-icon {
+  font-size: 2.2rem;
+  color: #ff6b3d;
+  margin-top: 4px;
+}
+
+.category-info {
+  flex: 1;
+}
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.category-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+.category-date {
+  font-size: 0.95rem;
+  color: #aaa;
+}
+.category-description {
+  color: #666;
+  font-size: 1rem;
+  margin-top: 2px;
+}
+
+.category-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 18px;
+  margin-left: 0;
+}
+.edit-btn, .delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.15rem;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+.edit-btn i {
+  color: #ff9800;
+}
+.delete-btn i {
+  color: #e74c3c;
+}
+.edit-btn {
+  color: #ff9800;
+  border: 1.5px solid #ff9800;
+}
+.delete-btn {
+  color: #e74c3c;
+  border: 1.5px solid #e74c3c;
+}
+.edit-btn:hover {
+  background: #fff3e0;
+  color: #fff;
+  border-color: #ff9800;
+}
+.delete-btn:hover {
+  background: #ffeaea;
+  color: #fff;
+  border-color: #e74c3c;
+}
+
+@media (max-width: 700px) {
+  .category-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .category-card {
+    width: 100%;
+    max-width: 98vw;
+  }
+}

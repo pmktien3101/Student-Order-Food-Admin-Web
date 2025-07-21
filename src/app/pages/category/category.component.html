@@ -1,0 +1,32 @@
+<div class="category-container">
+  <h2 class="category-title">List of categories</h2>
+
+  <form class="category-form" (ngSubmit)="onSubmit()" #catForm="ngForm">
+    <div class="form-row">
+      <input type="text" [(ngModel)]="formData.name" name="name" placeholder="Category name" required />
+      <input type="text" [(ngModel)]="formData.description" name="description" placeholder="Description" required />
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="save-btn">{{ isEdit ? 'Save changes' : 'Add new' }}</button>
+      <button *ngIf="isEdit" type="button" class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+    </div>
+  </form>
+
+  <div class="category-list">
+    <div class="category-card" *ngFor="let category of categories">
+      <div class="category-icon">
+        <i class="fas fa-utensils"></i>
+      </div>
+      <div class="category-info">
+        <div class="category-header">
+          <span class="category-name">{{ category.name }}</span>
+        </div>
+        <div class="category-description">{{ category.description }}</div>
+      </div>
+      <div class="category-actions">
+        <button class="edit-btn" title="Edit" (click)="editCategory(category)"><i class="fas fa-edit"></i> Edit</button>
+        <button class="delete-btn" title="Delete" (click)="deleteCategory(category.id)"><i class="fas fa-trash-alt"></i> Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

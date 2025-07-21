@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h2>User List</h2>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <div *ngIf="!users.length && !error">Loading...</div>
+  <table *ngIf="users.length" class="table table-bordered table-striped mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>Avatar</th>
+        <th>Fullname</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>
+          <img [src]="user.avatar ? user.avatar : 'https://ui-avatars.com/api/?name=' + (user.fullName || user.userName) + '&background=random'"
+               alt="avatar" width="48" height="48" style="object-fit:cover; border-radius:50%;" />
+        </td>
+        <td>{{ user.fullName }}</td>
+        <td>{{ user.userName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.roleName }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
