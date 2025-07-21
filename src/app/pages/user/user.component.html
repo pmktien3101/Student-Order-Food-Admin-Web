@@ -17,7 +17,6 @@
           <th>Username</th>
           <th>Email</th>
           <th>Address</th>
-          <th>Phone</th>
           <th class="text-center">Role</th>
         </tr>
       </thead>
@@ -31,7 +30,6 @@
           <td>{{ user.userName }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.address }}</td>
-          <td>{{ user.phone }}</td>
           <td class="text-center">
             <span [ngClass]="{
               'badge bg-primary': user.roleName === 'Admin',

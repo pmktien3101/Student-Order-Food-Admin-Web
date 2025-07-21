@@ -24,6 +24,7 @@ export class WithdrawComponent implements OnInit {
     this.loading = true;
     this.transactionService.getAllWithDraws().subscribe({
       next: (res) => {
+        console.log('RES', res)
         this.pendingWithdraws = res.data || res;
         this.loading = false;
       },

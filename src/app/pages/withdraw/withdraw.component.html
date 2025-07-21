@@ -15,6 +15,7 @@
           <th class="text-center">Transaction ID</th>
           <th class="text-end">Amount</th>
           <th class="text-center">Requested By</th>
+          <th class="text-center">Phone</th>
           <th class="text-center">Created At</th>
           <th class="text-center">Action</th>
         </tr>
@@ -24,6 +25,7 @@
           <td class="text-center"><span class="fw-bold">{{ item.id || item.transactionId }}</span></td>
           <td class="text-end"><span class="text-success fw-bold fs-5">{{ item.amount | number }}</span></td>
           <td class="text-center">{{ item.requestedBy || item.userName }}</td>
+          <td class="text-center">{{ item.phone || item.userName }}</td>
           <td class="text-center">{{ item.createdAt | date:'short' }}</td>
           <td class="text-center">
             <div class="d-flex flex-column align-items-center gap-1">
