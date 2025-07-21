@@ -15,4 +15,8 @@ export class UserService {
   deleteUser(userId: string): Observable<any> {
     return this.apiService.delete<any>(`Users/${userId}`);
   }
+
+  getUserById(userId: string): Observable<any> {
+    return this.apiService.get<any>(`Users/${userId}`);
+  }
 }

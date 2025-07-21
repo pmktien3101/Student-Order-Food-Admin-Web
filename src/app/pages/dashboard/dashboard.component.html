@@ -1,31 +1,50 @@
-<div class="dashboard-container">
-  <div class="overview-cards">
-    <div class="overview-card">
-      <h3>Total Orders</h3>
-      <p class="overview-value">123</p>
-    </div>
-    <div class="overview-card">
-      <h3>Revenue</h3>
-      <p class="overview-value">12,000,000₫</p>
-    </div>
-    <div class="overview-card">
-      <h3>Users</h3>
-      <p class="overview-value">456</p>
-    </div>
-    <div class="overview-card">
-      <h3>Shops</h3>
-      <p class="overview-value">7</p>
+<h1 class="dashboard-title">Admin Dashboard</h1>
+<div class="overview-cards">
+  <div class="overview-card account">
+    <div class="icon"><span>👤</span></div>
+    <div class="info">
+      <h3>Total Accounts</h3>
+      <p class="overview-value">56</p>
     </div>
   </div>
+  <div class="overview-card shop">
+    <div class="icon"><span>🏪</span></div>
+    <div class="info">
+      <h3>Pending Shops</h3>
+      <p class="overview-value">2</p>
+    </div>
+  </div>
+  <div class="overview-card withdraw">
+    <div class="icon"><span>💸</span></div>
+    <div class="info">
+      <h3>Pending Withdrawals</h3>
+      <p class="overview-value">2</p>
+    </div>
+  </div>
+  <div class="overview-card order">
+    <div class="icon"><span>🛒</span></div>
+    <div class="info">
+      <h3>Total Orders</h3>
+      <p class="overview-value">23</p>
+    </div>
+  </div>
+</div>
 
-  <div class="charts-section">
-    <div class="chart-card">
-      <h2>Pie Chart</h2>
-      <canvas #pieCanvas width="400" height="400"></canvas>
-    </div>
-    <div class="chart-card">
-      <h2>Bar Chart</h2>
-      <canvas #barCanvas width="400" height="400"></canvas>
-    </div>
+<div class="charts-section">
+  <div class="chart-card">
+    <h2>Pie Chart</h2>
+    <canvas #pieCanvas width="400" height="400"></canvas>
+  </div>
+  <div class="chart-card">
+    <h2>Bar Chart</h2>
+    <canvas #barCanvas width="400" height="400"></canvas>
+  </div>
+  <div class="chart-card">
+    <h2>Line Chart</h2>
+    <canvas #lineCanvas width="400" height="400"></canvas>
+  </div>
+  <div class="chart-card">
+    <h2>Doughnut Chart</h2>
+    <canvas #doughnutCanvas width="400" height="400"></canvas>
   </div>
 </div>

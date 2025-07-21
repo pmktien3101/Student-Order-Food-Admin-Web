@@ -1,31 +1,33 @@
-<div class="category-container">
-  <h2 class="category-title">List of categories</h2>
+<div class="container mt-4">
+  <div class="d-flex align-items-center mb-3">
+    <i class="bi bi-tags fs-2 me-2 text-warning"></i>
+    <div>
+      <h2 class="mb-0">Category Management</h2>
+      <small class="text-muted">Add, edit, and manage food categories</small>
+    </div>
+  </div>
 
   <form class="category-form" (ngSubmit)="onSubmit()" #catForm="ngForm">
     <div class="form-row">
-      <input type="text" [(ngModel)]="formData.name" name="name" placeholder="Category name" required />
-      <input type="text" [(ngModel)]="formData.description" name="description" placeholder="Description" required />
-    </div>
-    <div class="form-actions">
-      <button type="submit" class="save-btn">{{ isEdit ? 'Save changes' : 'Add new' }}</button>
-      <button *ngIf="isEdit" type="button" class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+      <input type="text" [(ngModel)]="formData.name" name="name" class="form-input" placeholder="Category name" required />
+      <input type="text" [(ngModel)]="formData.description" name="description" class="form-input" placeholder="Description" required />
+      <button type="submit" class="form-btn main-btn">{{ isEdit ? 'Save' : 'Add' }}</button>
+      <button *ngIf="isEdit" type="button" class="form-btn cancel-btn" (click)="cancelEdit()">Cancel</button>
     </div>
   </form>
 
   <div class="category-list">
     <div class="category-card" *ngFor="let category of categories">
-      <div class="category-icon">
-        <i class="fas fa-utensils"></i>
-      </div>
+      <div class="category-icon"><i class="bi bi-collection"></i></div>
       <div class="category-info">
         <div class="category-header">
-          <span class="category-name">{{ category.name }}</span>
+          <div class="category-name">{{ category.name }}</div>
         </div>
         <div class="category-description">{{ category.description }}</div>
-      </div>
-      <div class="category-actions">
-        <button class="edit-btn" title="Edit" (click)="editCategory(category)"><i class="fas fa-edit"></i> Edit</button>
-        <button class="delete-btn" title="Delete" (click)="deleteCategory(category.id)"><i class="fas fa-trash-alt"></i> Delete</button>
+        <div class="category-actions">
+          <button class="edit-btn" title="Edit" (click)="editCategory(category)"><i class="bi bi-pencil"></i>Edit</button>
+          <button class="delete-btn" title="Delete" (click)="deleteCategory(category.id)"><i class="bi bi-trash"></i>Delete</button>
+        </div>
       </div>
     </div>
   </div>

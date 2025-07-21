@@ -45,4 +45,10 @@ export class WithdrawComponent implements OnInit {
       }
     });
   }
+
+  handleApproveWithdraw(item: any, isApproved: boolean, note: string, type: 'approve' | 'reject') {
+    this.approveWithdraw({ ...item, adminNote: note }, isApproved);
+    if (type === 'approve') item._showApprove = false;
+    if (type === 'reject') item._showReject = false;
+  }
 }

@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  API_URL: 'https://localhost:7111/api/v1'
+  API_URL: 'https://api-backend.orderfood.audivia.vn/api/v1'
 }; 

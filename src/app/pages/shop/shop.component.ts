@@ -24,15 +24,19 @@ export class ShopComponent implements OnInit {
 
   getShops(): void {
     this.loading = true;
+    this.error = '';
     this.shopService.getAllShopRegister(this.pageIndex, this.pageSize).subscribe({
       next: (data) => {
         console.log('DATA', data)
         if (Array.isArray(data)) {
           this.shops = data;
-        } else if (data && Array.isArray(data.data.items)) {
+        } else if (data && Array.isArray(data.data?.items)) {
           this.shops = data.data.items;
         } else {
           this.shops = [];
+        }
+        if (this.shops.length === 0) {
+          this.error = 'No shops found.';
         }
         this.loading = false;
       },
@@ -48,7 +52,6 @@ export class ShopComponent implements OnInit {
     this.loading = true;
     this.shopService.approveShopRegister(shopId, isApproved, note).subscribe({
       next: (res) => {
-        // Remove the shop from the list or refresh
         this.shops = this.shops.filter(shop => shop.id !== shopId);
         this.loading = false;
       },
